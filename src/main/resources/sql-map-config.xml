@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+	<typeAlias type="com.ezen.biz.dto.MainViewImgVO" 
+		alias="MainViewImgVO"/>
+		<typeAlias type="com.ezen.biz.dto.NoticeVO" 
+		alias="NoticeVO"/>
+		<typeAlias type="com.ezen.biz.dto.ProductVO" 
+		alias="ProductVO"/>
+  	</typeAliases>
+	<mappers>
+		<mapper resource="mappings/main-mapping.xml"/>
+		<mapper resource="mappings/product-mapping.xml"/>
+	</mappers>
+</configuration>

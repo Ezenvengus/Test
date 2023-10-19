@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kidultstoreMain">
+  <select id="selectCategory" resultType="java.util.Map">
+    SELECT seq,cate_name FROM category WHERE disp='y'
+    ORDER BY disp_no
+  </select>
+  <select id="selectMainimg" resultType="MainViewImgVO">
+  	SELECT * FROM VIEW_MAINIMG
+  </select>
+  <select id="selectMainNotice" resultType="NoticeVO">
+  	SELECT * FROM view_notice
+  </select>
+  <select id="selectMainNoticeMap" resultType="java.util.Map">
+  	SELECT * FROM view_notice
+  </select>
+  <select id="selectMainSpecialimg" resultType="MainViewImgVO">
+  		SELECT * FROM view_special
+  </select>
+  <select id="selectMainNewimg" resultType="com.ezen.biz.dto.ProductVO">
+  		SELECT * FROM view_newimg
+  </select>
+</mapper>

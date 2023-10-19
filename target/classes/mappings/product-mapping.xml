@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductDAO">
+	<select id="selectProductList" resultType="com.ezen.biz.dto.ProductVO">
+		select * from product
+		where cate_seq=#{cate_seq}
+	</select >
+	<select id="selectProduct" resultType="com.ezen.biz.dto.ProductVO">
+		select * from product
+		where p_no=#{p_no}
+	</select>
+	<select id="selectCategory" resultType="java.util.Map">
+	 SELECT cate_name FROM category WHERE seq=#{seq}
+	</select>
+	
+</mapper>
