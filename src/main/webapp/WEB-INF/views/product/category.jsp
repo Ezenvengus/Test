@@ -3,9 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ include file="../include/header.jsp"%>
+<link rel="stylesheet" type="text/css" href="/resources/css/common.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/main.css">
 <section id="main">
 	<section id="cat1">
-		<div id="cat_title">상품</div>
+		<div id="cat_title">
+     <h2>상품</h2> 
+    </div>
 	</section>
 	<div class="clear"></div>
 

@@ -76,7 +76,7 @@
          <!-- size -->
         <ul class="buttons">
           <li><img src="/resources/img/btn_buy_now.gif"></li>
-          <li><img src="/resources/img/btn_cart.gif"></li>
+          <li><a href="cart?p_no=${pvo.p_no}&seq=${seq}&state=0"><img src="/resources/img/btn_cart.gif"></a></li>
         </ul>			
       </section> <!-- section summary2 -->
       <div class="clear"></div>

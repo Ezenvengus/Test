@@ -17,7 +17,9 @@
   </section> <!-- section footer_menu_box -->
   <section id="footer_box">
     <div id="footer_logo">
+     <a id="logo" href="/">
       <img src="/resources/img/footer_logo.jpg" width="182" height="39">
+      </a>
     </div>
     <div id="address">
       <img src="/resources/img/address.gif">

@@ -48,11 +48,27 @@ public class ProductController {
 		//view에 필요한 데이터 담는 곳 
 		List<ProductVO> list= service.selectCate_seq(seq);
 		model.addAttribute("list", list);
+		model.addAttribute("seq", seq);
 		ProductVO pvo=service.selectp_no(p_no);
 		model.addAttribute("pvo", pvo);
 		
-		//view페이지로
+		//view페이지로 이동
 		return "product/detail";
+	}
+	@GetMapping("/cart")
+	public String cart(@RequestParam int p_no,@RequestParam int seq,Model model) {
+		
+		// 1. 카테고리
+		//view에 필요한 데이터 담는 곳 
+		List<Map<String, Object>> cate = iservice.selectCategory();
+		model.addAttribute("cate", cate);
+		List<ProductVO> list= service.selectCate_seq(seq);
+		model.addAttribute("list", list);
+		ProductVO pvo=service.selectp_no(p_no);
+		model.addAttribute("pvo", pvo);
+		
+		return "product/cart";
+		
 	}
 	
 }

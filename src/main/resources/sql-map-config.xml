@@ -6,10 +6,10 @@
 	<typeAliases>
 	<typeAlias type="com.ezen.biz.dto.MainViewImgVO" 
 		alias="MainViewImgVO"/>
-		<typeAlias type="com.ezen.biz.dto.NoticeVO" 
+	<typeAlias type="com.ezen.biz.dto.NoticeVO" 
 		alias="NoticeVO"/>
-		<typeAlias type="com.ezen.biz.dto.ProductVO" 
-		alias="ProductVO"/>
+	<typeAlias type="com.ezen.biz.dto.ProductVO" 
+	alias="ProductVO"/>
   	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/main-mapping.xml"/>
