@@ -44,19 +44,15 @@
          ${pvo.p_name}
         </td>
         <td class="col3">${pvo.price}원</td>
-        <td class="col4">
-          <input type="checkbox">
-          1개 
-          <button>수정</button>
-        </td>
+        <td class="col4">1개</td>
         <td class="col5">100P</td>
         
         <td class="col6">3,000원</td>
-        <td class="col7">${pvo.price+3000}원</td>    
+        <td class="col7">${pvo.price*1+3000}원</td>    
       </tr>        
       <tr class="total_price">
         <td colspan="7" >
-          [상품 구매 금액] : ${pvo.price} + [배송비] : 3,000 = [총구매액] : <span>${pvo.price+3000}원</span>
+          [상품 구매 금액] : ${pvo.price*1} + [배송비] : 3,000 = [총구매액] : <span>${pvo.price*1+3000}원</span>
         </td> 
       </tr>           
       <tr class="order_status_box">
@@ -68,7 +64,7 @@
       <td colspan="4">   
         <ul>
                 <li class="col1">[상품 구매 금액]:</li>
-                <li class="col2">${pvo.price}원</li>
+                <li class="col2">${pvo.price*1}원</li>
               </ul>
               <ul>
                 <li class="col1">배송비:</li>
@@ -76,7 +72,7 @@
               </ul>
               <ul>
                 <li class="col1"><span>총 주문 합계 금액</span></li>
-                <li class="col2"><span>${pvo.price+3000}원</span></li>
+                <li class="col2"><span>${pvo.price*1+3000}원</span></li>
               </ul>
             </div>
           </div> <!-- order_status -->
@@ -84,7 +80,7 @@
       </tr>
     </table>
     <ul id="order_buttons">
-      <li><img src="/resources/img/order_button1.gif"></li>
+      <li><a href="buydetail?p_no=${pvo.p_no}&seq=${pvo.cate_seq}"><img src="/resources/img/order_button1.gif"></a></li>
       <li><img src="/resources/img/order_button2.gif"></li>
       <li><a href="/"><img src="/resources/img/order_button3.gif"></a></li>
       <li><img src="/resources/img/order_button4.gif"></li>

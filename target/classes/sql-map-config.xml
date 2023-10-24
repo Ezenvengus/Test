@@ -10,9 +10,13 @@
 		alias="NoticeVO"/>
 	<typeAlias type="com.ezen.biz.dto.ProductVO" 
 	alias="ProductVO"/>
+	<typeAlias type="com.ezen.biz.dto.BuyVO"
+	alias="BuyVO"/>
   	</typeAliases>
 	<mappers>
 		<mapper resource="mappings/main-mapping.xml"/>
 		<mapper resource="mappings/product-mapping.xml"/>
+		<mapper resource="mappings/buy-mapping.xml"/>
+			<mapper resource="mappings/member-mapping.xml"/>
 	</mappers>
 </configuration>

@@ -3,6 +3,8 @@ package com.ezen.biz.service;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
+
 import com.ezen.biz.dto.CategoryVO;
 import com.ezen.biz.dto.DetailVO;
 import com.ezen.biz.dto.MainViewImgVO;

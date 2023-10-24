@@ -20,8 +20,8 @@
     </div>
     <nav id="top_menu">
       <ul>
-        <li class="green"><a href="#">로그인</a></li>
-        <li class="green"><a href="#">회원가입</a></li>
+        <li class="green"><a href="login">로그인</a></li>
+        <li class="green"><a href="register">회원가입</a></li>
         <li><a href="#">마이페이지</a></li>
         <li><a href="#">이용안내</a></li>
         <li><a href="#">고객센터</a></li>

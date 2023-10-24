@@ -105,7 +105,19 @@
 		    <artifactId>spring-test</artifactId>
 		    <version>${org.springframework-version}</version>
 		</dependency>
-				
+		<!-- aspectjweaver -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>1.9.20</version>
+		    <scope>runtime</scope>
+		</dependency>	
+		<!-- spring-security-crypto : 비밀번호 암호화 -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-crypto</artifactId>
+		    <version>5.8.7</version>
+		</dependency>	
 		<!-- lombok -->
 		<dependency>
 		    <groupId>org.projectlombok</groupId>
@@ -125,19 +137,6 @@
 		    <artifactId>HikariCP</artifactId>
 		    <version>5.0.1</version>
 		</dependency>
-		<!-- commons-fileupload -->
-		<dependency>
-		    <groupId>commons-fileupload</groupId>
-		    <artifactId>commons-fileupload</artifactId>
-		    <version>1.5</version>
-		</dependency>
-		<!-- aspectjweaver -->
-		<dependency>
-		    <groupId>org.aspectj</groupId>
-		    <artifactId>aspectjweaver</artifactId>
-		    <version>1.9.20</version>
-		    <scope>runtime</scope>
-		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
@@ -156,7 +155,28 @@
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>3.0.0</version>
 		</dependency>
-						     
+		<!-- 스프링 보안관련 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>5.8.7 </version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.8.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>5.8.7</version>
+		</dependency>	
+		<!-- commons-fileupload -->
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.5</version>
+		</dependency>						     
 	</dependencies>
     <build>
         <plugins>

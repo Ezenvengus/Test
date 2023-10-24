@@ -56,18 +56,14 @@
               <div class="clear"></div>
             </li>
             <li>
-              <div class="col1">남은수량</div>
+              <div class="col1">재고량</div>
               <div class="col2">${pvo.inventory}개</div>
               <div class="clear"></div>
             </li>
             <li>
               <div class="col1"></div>
               <div class="col2">
-                <select>
-                  <option>== 옵션 선택 ==</option>
-                  <option>1개</option>
-                  <option>2개</option>
-                </select>
+              수량 : 1
               </div>
               <div class="clear"></div>
             </li>
@@ -92,12 +88,12 @@
             <div class="clear"></div>				
           </li>
           <li>
-           <div class="col1">부품수</div>
+           <div class="col1">- 부품수</div>
               <div class="col2">${pvo.parts}개</div>
               <div class="clear"></div>			
           </li>
           <li>
-            <div class="col1">제조년</div>
+            <div class="col1">- 제조년</div>
               <div class="col2">${pvo.regdate}</div>
               <div class="clear"></div>				
           </li>

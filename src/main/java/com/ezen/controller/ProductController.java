@@ -9,8 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ezen.biz.dto.BuyDetailVO;
+import com.ezen.biz.dto.BuyVO;
 import com.ezen.biz.dto.CategoryVO;
 import com.ezen.biz.dto.ProductVO;
+import com.ezen.biz.service.BuyService;
 import com.ezen.biz.service.IndexService;
 import com.ezen.biz.service.ProductService;
 
@@ -20,6 +23,8 @@ public class ProductController {
 	private ProductService service;
 	@Autowired
 	private IndexService iservice;
+	@Autowired
+	private BuyService bservice;
 	//카테고리 이동
 	@GetMapping("/category")
 	public String category(@RequestParam int seq,Model model) {
@@ -66,7 +71,11 @@ public class ProductController {
 		model.addAttribute("list", list);
 		ProductVO pvo=service.selectp_no(p_no);
 		model.addAttribute("pvo", pvo);
-		
+		BuyVO vo=new BuyVO();
+		vo.setSeq(seq);
+		List<BuyDetailVO> bvo=bservice.getBuyDetail(vo);
+		//buyDetail 페이지에서 필요한 데이터를 담는다.
+		model.addAttribute("bvo",bvo);
 		return "product/cart";
 		
 	}
