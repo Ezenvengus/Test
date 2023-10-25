@@ -4,18 +4,19 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="MemberDAO">
   	<insert id="insertMember">
-  		insert into membertbl(userid,userpwd,username,addr,detailaddr)
+  		insert into membertbl(userid,userpwd,username,addr1,addr2,postno)
   		values(#{userid},#{userpwd},#{username},
-  		#{addr,jdbcType=NVARCHAR},#{detailaddr,jdbcType=NVARCHAR})
+  		#{addr1,jdbcType=NVARCHAR},#{addr2,jdbcType=NVARCHAR},#{postno})
   	</insert>
   	<select id="selectMember" resultType="com.ezen.biz.dto.MemberVO">
   		select * from membertbl 
   		where userid=#{userid}
-  		 and userpwd =#{userpwd}
-  		 and  enabled='1'
+   
+   
+   
   	</select>
   	<!-- 모든회원 조회 -->
   	<select id="selectMemberList" resultType="com.ezen.biz.dto.MemberVO">
-  		select * from membertbl where enabled='1'
+  		select * from membertbl 
   	</select>
 </mapper>
