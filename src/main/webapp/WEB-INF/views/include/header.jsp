@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>kidultstore</title>	
+<title>KidultStore</title>	
 <link rel="stylesheet" type="text/css" href="/resources/css/common.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/main.css">
-
 </head>
 <body>
 <header>
@@ -22,7 +21,7 @@
       <ul>
         <li class="green"><a href="login">로그인</a></li>
         <li class="green"><a href="register">회원가입</a></li>
-        <li><a href="#">마이페이지</a></li>
+        <li><a href="mypage">마이페이지</a></li>
         <li><a href="#">이용안내</a></li>
         <li><a href="#">고객센터</a></li>
       </ul>
@@ -31,7 +30,7 @@
   </section> <!-- section top -->
   <nav id="main_menu">
     <ul>
-      <li><a href="#">상세 페이지 </a></li>
+      <li><a href="category">상세 페이지 </a></li>
       <li><a href="#">장바구니</a></li>
       <li><a href="#">고객 갤러리 </a></li>
       <li><a href="#">주문배송</a></li>
@@ -39,3 +38,4 @@
     </ul>
   </nav>
 </header>
+</body>
