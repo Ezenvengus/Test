@@ -20,6 +20,6 @@
 		values(seq_buytbl.nextval,#{userid},#{p_no,jdbcType=INTEGER},#{cnt})
 	</insert>
 	<select id="selectCnt">
-		select cnt from  buytbl
+		select cnt from buytbl
 	</select>
 </mapper>
