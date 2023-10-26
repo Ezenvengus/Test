@@ -31,17 +31,17 @@
           </li>
           <li>
            <div class="col1">- 남은수량</div>
-              <div class="col2">${pvo.inventory-1}</div>
+              <div class="col2">${pvo.inventory-cnt}</div>
               <div class="clear"></div>			
           </li>
           <li>
-            <div class="col1">- 제조년</div>
-              <div class="col2">${pvo.regdate}</div>
+            <div class="col1">- 제품번호</div>
+              <div class="col2">${pvo.p_no}</div>
               <div class="clear"></div>				
           </li>
           <li>
             <div class="col1">- 가격</div>
-            <div class="col2">${pvo.price*1+3000}원</div>
+            <div class="col2">${pvo.price*cnt+3000}원</div>
             <div class="clear"></div>				
           </li>
           <li>

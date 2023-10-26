@@ -3,10 +3,16 @@ package com.ezen.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.biz.dto.BuyDetailVO;
@@ -16,35 +22,45 @@ import com.ezen.biz.service.BuyService;
 import com.ezen.biz.service.IndexService;
 import com.ezen.biz.service.ProductService;
 
+import lombok.extern.log4j.Log4j;
+
 @Controller
+@Log4j
 public class BuyController {
 	@Autowired
 	private BuyService bservice;
 	
 	@Autowired
-	private ProductService service;
+	private ProductService pservice;
 	
 	@Autowired
 	private IndexService iservice;
 	
 	
+	@GetMapping("insertBuy")
+	public String insertBuy(BuyVO vo, HttpSession session) {
+
+		log.info(session.getAttribute("userid"));
+		vo.setUserid((String)session.getAttribute("userid"));
+		log.info(vo);
+		bservice.insertBuy(vo);
+		return "redirect:buyDetail";
+	}
 	
-	@GetMapping("buydetail")
-	public String buydetail(@RequestParam int p_no,@RequestParam int seq,Model model) {
-		System.out.println("buydetail");
+	
+	@GetMapping("buyDetail")
+	public String buyDetail(@RequestParam int p_no,@RequestParam int seq,@RequestParam int cnt,  Model model) {
+		System.out.println("buyDetail");
 		List<Map<String, Object>> cate = iservice.selectCategory();
 		model.addAttribute("cate", cate);
-		List<ProductVO> list= service.selectCate_seq(seq);
+		List<ProductVO> list= pservice.selectCate_seq(seq);
 		model.addAttribute("list", list);
-		ProductVO pvo=service.selectp_no(p_no);
+		ProductVO pvo=pservice.selectp_no(p_no);
 		model.addAttribute("pvo", pvo);	
 		BuyVO vo=new BuyVO();
-		vo.setSeq(seq);
-		List<BuyDetailVO> bvo=bservice.getBuyDetail(vo);
+		vo.setCnt(cnt);
 		//buyDetail 페이지에서 필요한 데이터를 담는다.
-		model.addAttribute("bvo",bvo);
-		
-		
-		return "buy/buydetail";
+		model.addAttribute("cnt",cnt);
+		return "buy/buyDetail";
 	}
 }

@@ -16,12 +16,12 @@ public class BuyServiceImpl implements BuyService {
 	@Autowired
 	private BuyDAO dao;
 
-	@Override
+	
 	public int maxSeq() {
 		return 0;
 	}
 
-	@Override
+	
 	public List<BuyVO> getBuyList(BuyVO vo) {
 		return dao.getBuyList(vo);
 	}
@@ -33,6 +33,12 @@ public class BuyServiceImpl implements BuyService {
 
 	public List<BuyDetailVO> getBuyDetail(BuyVO vo) {
 		return dao.getBuyDetail(vo);
+	}
+
+	
+	public int insertBuy(BuyVO vo) {
+		return dao.insertBuy(vo);
+		 
 	}
 
 	

@@ -8,7 +8,7 @@ import lombok.Data;
 public class BuyDetailVO {
 	//buy
 	private int seq;
-	private String id;
+	private String userid;
 	private int p_seq,cnt;
 	private Date regdate;
 	//product

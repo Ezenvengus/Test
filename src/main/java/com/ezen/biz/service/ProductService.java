@@ -15,5 +15,9 @@ public interface ProductService {
 
 	List<Map<String, Object>> selectCategory(int seq);
 
-	void changeInventory(ProductVO vo);
+	void updateProduct(ProductVO vo);
+	
+	void insertProduct(ProductVO vo);
+	
+	void updateInventory(ProductVO vo);
 }

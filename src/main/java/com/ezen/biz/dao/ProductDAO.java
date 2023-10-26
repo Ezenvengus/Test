@@ -25,9 +25,14 @@ public class ProductDAO  {
 	public List<Map<String, Object>> selectCategory(int seq) {
 		return mybatis.selectOne("ProductDAO.selectCategory",seq);
 	}
-	public void changeinventory(ProductVO vo){
-		mybatis.update("ProductDAO.changeInventory",vo);	
+	public void insertProduct(ProductVO vo) {
+		mybatis.insert("ProductDAO.insertProduct", vo);
 	}
-	
+	public void updateInventory(ProductVO vo) {
+		mybatis.update("ProductDAO.updateInventory", vo);
+	}
+	public void updateProduct(ProductVO vo) {
+		mybatis.update("ProductDAO.updateProduct", vo);
+	}
 
 }

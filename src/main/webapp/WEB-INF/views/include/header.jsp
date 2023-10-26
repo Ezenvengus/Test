@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,17 +20,27 @@
       <div id="search_button"><img src="/resources/img/btn_search.gif"></div>
     </div>
     <nav id="top_menu">
-      <ul>
-        <li class="green"><a href="login">로그인</a></li>
+    <ul>
+    <c:choose>
+      <c:when test="${sessionScope.userid==null}">
+      <li class="green"><a href="login">로그인</a></li>
         <li class="green"><a href="register">회원가입</a></li>
-        <li><a href="mypage">마이페이지</a></li>
+      </c:when>
+     <c:otherwise>
+      		${sessionScope.userid}님
+      		<li class="green"><a href="logout">로그아웃</a></li>
+      	<li><a href="#">마이페이지</a></li>
         <li><a href="#">이용안내</a></li>
         <li><a href="#">고객센터</a></li>
+       </c:otherwise>
+      </c:choose>
+       
       </ul>
     </nav> <!-- top_menu -->
     <div class="clear"></div>
   </section> <!-- section top -->
   <nav id="main_menu">
+  
     <ul>
       <li><a href="category">상세 페이지 </a></li>
       <li><a href="#">장바구니</a></li>

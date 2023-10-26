@@ -57,13 +57,13 @@
             </li>
             <li>
               <div class="col1">재고량</div>
-              <div class="col2">${pvo.inventory}개</div>
+              <div class="col2">${pvo.inventory-cnt}개</div>
               <div class="clear"></div>
             </li>
             <li>
-              <div class="col1"></div>
+              <div class="col1">수 량</div>
               <div class="col2">
-              수량 : 1
+             <input type="text" name="cnt" id="cnt" />
               </div>
               <div class="clear"></div>
             </li>
@@ -72,7 +72,7 @@
          <!-- size -->
         <ul class="buttons">
           <li><img src="/resources/img/btn_buy_now.gif"></li>
-          <li><a href="cart?p_no=${pvo.p_no}&seq=${seq}&state=0"><img src="/resources/img/btn_cart.gif"></a></li>
+          <li><img src="/resources/img/btn_cart.gif" onclick="insertcart()"></li>
         </ul>			
       </section> <!-- section summary2 -->
       <div class="clear"></div>
@@ -122,7 +122,13 @@
   </section> <!-- section right -->
   <div class="clear"></div>
 </section> <!-- section main -->
-
+<script type="text/javascript">
+	function insertcart() {
+		let cnt= document.getElementById("cnt").value;
+		//console.log(cnt);
+		location.href = "cart?p_no=${pvo.p_no}&seq=${seq}&cnt="+cnt;
+	}
+</script>
 <%@ include file="../include/footer.jsp"%>
 
 

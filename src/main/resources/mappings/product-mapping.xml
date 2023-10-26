@@ -14,11 +14,16 @@
 	<select id="selectCategory" resultType="java.util.Map">
 	 SELECT cate_name FROM category WHERE seq=#{seq}
 	</select>
-	<update id="changeInventory" >
-		update product
-		set inventory = #{inventory}
-		where p_no = #{p_no}
-	
+	<insert id="insertProduct">
+		insert into product(p_no,p_name,price,inventory,) 
+		values(seq_product.nextval,#{p_name},#{price},#{inventory})
+	</insert>
+	<update id="updateInventory">
+		update product set inventory=#{inventory} where p_no=#{p_no} 
 	</update>
-	
+	<update id="updateProduct">
+		update product set p_name=#{p_name},parts=#{parts}
+		,price=#{price},inventory=#{inventory},details=#{details},disp=#{disp} 
+		where p_no=#{p_no} 
+	</update>
 </mapper>

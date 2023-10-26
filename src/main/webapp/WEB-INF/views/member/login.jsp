@@ -21,7 +21,7 @@
 						value="${cookie.rememberID.value}">
 				</div>
 				<div class="form-group label-floating">
-					<label class="control-label">비밀번호</label> <input name="userPwd"
+					<label class="control-label">비밀번호</label> <input name="userpwd"
 						type="password" id="userpwd" class="form-control">
 				</div>
 				<div class="checkbox">

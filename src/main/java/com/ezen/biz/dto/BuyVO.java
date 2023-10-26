@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class BuyVO {
 	private int seq;
-	private String id;
-	private int p_seq,cnt;
+	private String userid;
+	private int p_no,cnt;
 	private Date regdate;
 }

@@ -28,9 +28,21 @@ public class ProductServiceImpl implements ProductService {
 		return dao.selectCategory(seq);
 	}
 
-	@Override
-	public void changeInventory(ProductVO vo) {
-		dao.changeinventory(vo);
+
+	public void insertProduct(ProductVO vo) {
+		dao.insertProduct(vo);
+		
+	}
+
+	
+	public void updateInventory(ProductVO vo) {
+		dao.updateInventory(vo);
+		
+	}
+
+	
+	public void updateProduct(ProductVO vo) {
+		dao.updateProduct(vo);
 		
 	}
 

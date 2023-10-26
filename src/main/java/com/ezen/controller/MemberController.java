@@ -25,7 +25,7 @@ public class MemberController {
 	@Autowired
 	private PasswordEncoder encoder;	
 	@Autowired
-	private MemberService service;
+	private MemberService mservice;
 	//login 이동
 	@GetMapping("/login")
 	public String doMember() {
@@ -38,24 +38,25 @@ public class MemberController {
 	public String Login(MemberVO vo,Model model,HttpServletRequest request) {
 		log.info("login-----");
 		log.info(vo);
-		MemberVO v=service.selectMember(vo.getUserid());
+		MemberVO v=mservice.selectMember(vo.getUserid());
 		if(v==null) {
 			model.addAttribute("error", "없는 아이디 입니다.");
-			return "member/login";
+			return "member/register";
 		}else {//패스워드 일치 확인
 			if(encoder.matches(vo.getUserpwd(), v.getUserpwd())) {
 				//로그인 성공 --> 세션에 담기
 				HttpSession session=request.getSession();
 				session.setAttribute("userid", v.getUserid());
 				session.setAttribute("username", v.getUsername());
-				return "member/memberHome";
+				return "redirect:/";
 			}else {
 				model.addAttribute("error", "패스워드가 다릅니다.");
-				return "member/login";
+				return "member/register";
 			}
 		}
 
 	}
+	
 	
 	//register 등록
 	@GetMapping("/register")
@@ -72,7 +73,7 @@ public class MemberController {
 		log.info("register");
 		log.info(vo);
 		vo.setUserpwd(encoder.encode(vo.getUserpwd()));
-		service.insertMember(vo);
+		mservice.insertMember(vo);
 		return "member/login";
     }
 	
@@ -87,14 +88,14 @@ public class MemberController {
 		log.info("mypage");
 		log.info(vo);
 		vo.setUserpwd(encoder.encode(vo.getUserpwd()));
-		service.insertMember(vo);
+		mservice.insertMember(vo);
 		return "member/mypage";
 	}
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("MEMBER");
-		return "redirect:/logout";
+		session.removeAttribute("userid");
+		return "redirect:/";
 	}
 	
 }

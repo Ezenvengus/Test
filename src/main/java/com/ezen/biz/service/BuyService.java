@@ -17,7 +17,8 @@ public interface BuyService {
 	
 	public int changeBuy(BuyVO vo);
 
-	
+	int insertBuy(BuyVO vo);
+
 
 	
 

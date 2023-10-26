@@ -5,9 +5,9 @@
 <mapper namespace="BuyDAO">
 
 	<select id="getBuyDetail" resultType="com.ezen.biz.dto.BuyDetailVO">
-		select b.seq seq,userid,p_seq,cnt,b.regdate regdate ,p_name
+		select b.seq seq,userid,p_no,cnt,b.regdate regdate ,p_name
 		,parts,price,inventory from product p,buytbl b
-		where p_seq=b.p_seq and b.seq=#{seq}
+		where p_no=b.p_no and b.seq=#{seq}
 	</select>
 	<select id="maxSeq" resultType="java.lang.Integer">
 		select max(seq) from buytbl
@@ -15,4 +15,11 @@
 	<update id="changeBuy">
 		update buytbl set cnt=#{cnt} where seq=#{seq}
 	</update>
+	<insert id="insertBuy">
+		INSERT INTO buytbl(seq,userid,p_no,cnt) 
+		values(seq_buytbl.nextval,#{userid},#{p_no,jdbcType=INTEGER},#{cnt})
+	</insert>
+	<select id="selectCnt">
+		select cnt from  buytbl
+	</select>
 </mapper>
