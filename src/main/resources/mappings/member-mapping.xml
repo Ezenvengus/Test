@@ -11,9 +11,6 @@
   	<select id="selectMember" resultType="com.ezen.biz.dto.MemberVO">
   		select * from membertbl 
   		where userid=#{userid}
-   
-   
-   
   	</select>
   	<!-- 모든회원 조회 -->
   	<select id="selectMemberList" resultType="com.ezen.biz.dto.MemberVO">
