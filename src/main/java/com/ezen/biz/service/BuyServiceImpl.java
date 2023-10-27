@@ -17,11 +17,6 @@ public class BuyServiceImpl implements BuyService {
 	private BuyDAO dao;
 
 	
-	public int maxSeq() {
-		return 0;
-	}
-
-	
 	public List<BuyVO> getBuyList(BuyVO vo) {
 		return dao.getBuyList(vo);
 	}
@@ -37,8 +32,16 @@ public class BuyServiceImpl implements BuyService {
 
 	
 	public int insertBuy(BuyVO vo) {
-		return dao.insertBuy(vo);
-		 
+		dao.insertBuy(vo);
+		//가장 큰 값
+		return dao.maxSeq();
+	}
+
+
+	@Override
+	public void updateBuy(BuyVO vo) {
+		dao.updateBuy(vo);
+		
 	}
 
 	

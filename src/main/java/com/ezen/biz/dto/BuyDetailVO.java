@@ -9,7 +9,7 @@ public class BuyDetailVO {
 	//buy
 	private int seq;
 	private String userid;
-	private int p_seq,cnt;
+	private int p_no,cnt;
 	private Date regdate;
 	//product
 	private String p_name;

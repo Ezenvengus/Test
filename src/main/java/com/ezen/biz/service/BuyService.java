@@ -11,19 +11,11 @@ public interface BuyService {
 	// 메소드 정의
 	public List<BuyDetailVO> getBuyDetail(BuyVO vo);
 
-	int maxSeq();
-
 	List<BuyVO> getBuyList(BuyVO vo);
 	
 	public int changeBuy(BuyVO vo);
 
 	int insertBuy(BuyVO vo);
 
-
-	
-
-	
-
-	
-
+	void updateBuy(BuyVO vo);
 }

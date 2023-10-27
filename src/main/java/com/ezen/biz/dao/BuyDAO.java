@@ -33,9 +33,12 @@ public class BuyDAO {
 
 		public List<BuyDetailVO> getBuyDetail(BuyVO vo) {
 		return mybatis.selectList("BuyDAO.getBuyDetail", vo);
-	}
-		public int insertBuy(BuyVO vo) {
-		 return mybatis.insert("BuyDAO.insertBuy",vo); 
+		}
+		public void insertBuy(BuyVO vo) {
+		 mybatis.insert("BuyDAO.insertBuy",vo); 
+		}
+		public void updateBuy(BuyVO vo) {
+			mybatis.update("BuyDAO.updateBuy", vo);
 		}
 		
 }

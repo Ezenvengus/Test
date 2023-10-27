@@ -22,4 +22,7 @@
 	<select id="selectCnt">
 		select cnt from buytbl
 	</select>
+	<update id="updateBuy">
+		update buytbl set cnt=#{cnt} where seq=#{seq}
+	</update>
 </mapper>

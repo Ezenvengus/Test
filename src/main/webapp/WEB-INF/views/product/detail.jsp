@@ -57,7 +57,7 @@
             </li>
             <li>
               <div class="col1">재고량</div>
-              <div class="col2">${pvo.inventory-cnt}개</div>
+              <div class="col2">${pvo.inventory}개</div>
               <div class="clear"></div>
             </li>
             <li>

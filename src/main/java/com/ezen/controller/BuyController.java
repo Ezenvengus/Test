@@ -43,13 +43,15 @@ public class BuyController {
 		log.info(session.getAttribute("userid"));
 		vo.setUserid((String)session.getAttribute("userid"));
 		log.info(vo);
-		bservice.insertBuy(vo);
-		return "redirect:buyDetail";
+		int seq= bservice.insertBuy(vo);
+		vo.setSeq(seq);
+		
+		return "redirect:buyDetail?p_no="+vo.getP_no()+"&seq="+seq+"&cnt="+vo.getCnt();
 	}
 	
 	
 	@GetMapping("buyDetail")
-	public String buyDetail(@RequestParam int p_no,@RequestParam int seq,@RequestParam int cnt,  Model model) {
+	public String buyDetail(@RequestParam int p_no, @RequestParam int seq, @RequestParam int cnt,  Model model) {
 		System.out.println("buyDetail");
 		List<Map<String, Object>> cate = iservice.selectCategory();
 		model.addAttribute("cate", cate);
