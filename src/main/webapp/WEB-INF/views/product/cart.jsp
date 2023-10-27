@@ -93,7 +93,7 @@
 	function insertBuy() {
 		//let cnt= document.getElementById("cnt").value;
 		//console.log(cnt);
-		location.href = "insertBuy?p_no=${pvo.p_no}&seq=${pvo.cate_seq}&cnt=${cnt}";
+	location.href = "insertBuy?p_no=${pvo.p_no}&seq=${pvo.cate_seq}&cnt=${cnt}";
 	}
 </script>
   <div class="clear"/>
