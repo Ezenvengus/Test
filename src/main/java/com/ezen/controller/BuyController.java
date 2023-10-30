@@ -44,8 +44,11 @@ public class BuyController {
 		vo.setUserid((String)session.getAttribute("userid"));
 		log.info(vo);
 		int seq= bservice.insertBuy(vo);
+		ProductVO pvo=new ProductVO();
+		pvo.setInventory(vo.getCnt());
+		pvo.setP_no(vo.getP_no());
+		pservice.updateInventory(pvo);//수량을 수정
 		vo.setSeq(seq);
-		
 		return "redirect:buyDetail?p_no="+vo.getP_no()+"&seq="+seq+"&cnt="+vo.getCnt();
 	}
 	

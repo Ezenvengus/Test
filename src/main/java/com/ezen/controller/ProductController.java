@@ -3,6 +3,8 @@ package com.ezen.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.ezen.biz.dto.BuyDetailVO;
 import com.ezen.biz.dto.BuyVO;
@@ -47,6 +50,17 @@ public class ProductController {
 		return "product/category";
 	}
 	
+//	@GetMapping("updateInventory")
+//	public String updateInventory(ProductVO vo, HttpSession session) {
+//		log.info(session.getAttribute("p_name"));
+//		vo.setP_name((String)session.getAttribute("p_name"));
+//		log.info(vo);
+//		//int inventory=
+//				pservice.updateInventory(vo);
+//		vo.setInventory(inventory);
+//		return "redirect:detail?p_no="+vo.getP_no()+"&seq="+vo.getCate_seq();
+//	}
+	
 	//디테일로 이동
 	@GetMapping("/detail")
 	public String detail(@RequestParam int p_no, @RequestParam int seq,Model model) {
@@ -65,16 +79,6 @@ public class ProductController {
 		//buyDetail 페이지에서 필요한 데이터를 담는다.
 		//view페이지로 이동
 		return "product/detail";
-	}
-	//카트 집어넣기( - insert
-	@RequestMapping(value="insertProduct",method = RequestMethod.GET)
-		public String insertProduct() {
-			return "product/cart";
-	}
-	//(inventory 에서빼기 -update
-	@RequestMapping(value = "updateProduct",method = RequestMethod.GET)
-	public String updateProduct() {
-		return "product/cart";
 	}
 	@GetMapping("/cart")
 	public String cart(@RequestParam int p_no,@RequestParam int seq,@RequestParam int cnt,Model model) {

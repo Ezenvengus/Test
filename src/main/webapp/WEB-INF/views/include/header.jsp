@@ -22,12 +22,12 @@
     <nav id="top_menu">
     <ul>
     <c:choose>
-      <c:when test="${sessionScope.userid==null}">
+      <c:when test="${sessionScope.username==null}">
       <li class="green"><a href="login">로그인</a></li>
         <li class="green"><a href="register">회원가입</a></li>
       </c:when>
      <c:otherwise>
-      		${sessionScope.userid}님
+      		${sessionScope.username}님
       		<li class="green"><a href="logout">로그아웃</a></li>
       	<li><a href="#">마이페이지</a></li>
         <li><a href="#">이용안내</a></li>

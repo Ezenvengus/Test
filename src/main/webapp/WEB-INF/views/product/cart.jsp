@@ -58,7 +58,7 @@
       <tr class="order_status_box">
         <td colspan="3">
           <div class="order_status">
-            <p><span>${userid}님의 총 주문 합계 금액입니다</span></p>
+            <p><span>${username}님의 총 주문 합계 금액입니다</span></p>
         </div>
       </td>  
       <td colspan="4">   
@@ -72,7 +72,7 @@
               </ul>
               <ul>
                 <li class="col1"><span>총 주문 합계 금액</span></li>
-                <li class="col2"><span>${pvo.price*cnt+3000}원</span></li>
+                <li class="col2"> <span>${pvo.price*cnt+3000}원</span></li>
               </ul>
             </div>
           </div> <!-- order_status -->

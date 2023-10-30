@@ -31,7 +31,7 @@
           </li>
           <li>
            <div class="col1">- 남은수량</div>
-              <div class="col2">${pvo.inventory-cnt}</div>
+              <div class="col2">${pvo.inventory}</div>
               <div class="clear"></div>			
           </li>
           <li>
