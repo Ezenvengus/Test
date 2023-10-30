@@ -72,7 +72,7 @@
               </ul>
               <ul>
                 <li class="col1"><span>총 주문 합계 금액</span></li>
-                <li class="col2"><span>${pvo.price*cnt+3000}원</span></li>
+                <li class="col2"> <span>${pvo.price*cnt+3000}원</span></li>
               </ul>
             </div>
           </div> <!-- order_status -->
