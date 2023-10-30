@@ -43,7 +43,6 @@ public class ProductServiceImpl implements ProductService {
 	
 	public void updateProduct(ProductVO vo) {
 		dao.updateProduct(vo);
-		
 	}
 
 	

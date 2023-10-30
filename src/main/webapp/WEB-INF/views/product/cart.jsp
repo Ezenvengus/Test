@@ -58,7 +58,7 @@
       <tr class="order_status_box">
         <td colspan="3">
           <div class="order_status">
-            <p><span>${userid}님의 총 주문 합계 금액입니다</span></p>
+            <p><span>${username}님의 총 주문 합계 금액입니다</span></p>
         </div>
       </td>  
       <td colspan="4">   

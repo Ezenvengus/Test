@@ -94,7 +94,7 @@ public class MemberController {
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("userid");
+		session.removeAttribute("username");
 		return "redirect:/";
 	}
 	

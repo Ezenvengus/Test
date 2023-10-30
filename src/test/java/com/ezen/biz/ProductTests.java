@@ -2,6 +2,7 @@ package com.ezen.biz;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,13 @@ public class ProductTests {
 	public void testselectCate_seq() {
 		List<ProductVO> list=dao.selectCate_seq(1);
 		log.info(list);
+	}
+	
+	@Test
+	public void updateInventoryTest() {
+		ProductVO pvo=new ProductVO();
+		pvo.setP_no(1);
+		pvo.setInventory(105);
+		log.info(pvo);
 	}
 }

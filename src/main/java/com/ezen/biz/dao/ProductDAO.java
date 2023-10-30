@@ -35,4 +35,6 @@ public class ProductDAO  {
 		mybatis.update("ProductDAO.updateProduct", vo);
 	}
 
+	
+
 }
