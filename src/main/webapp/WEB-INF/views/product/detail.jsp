@@ -129,6 +129,7 @@
 		location.href = "cart?p_no=${pvo.p_no}&seq=${seq}&cnt="+cnt;
 	}
 </script>
+
 <%@ include file="../include/footer.jsp"%>
 
 

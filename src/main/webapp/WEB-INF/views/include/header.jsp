@@ -29,7 +29,7 @@
      <c:otherwise>
       		${sessionScope.username}님
       		<li class="green"><a href="logout">로그아웃</a></li>
-      	<li><a href="#">마이페이지</a></li>
+      	<li><a href="memberHome">마이페이지</a></li>
         <li><a href="#">이용안내</a></li>
         <li><a href="#">고객센터</a></li>
        </c:otherwise>
@@ -42,7 +42,7 @@
   <nav id="main_menu">
   
     <ul>
-      <li><a href="category">상세 페이지 </a></li>
+      <li><a href="#">상세 페이지 </a></li>
       <li><a href="#">장바구니</a></li>
       <li><a href="#">고객 갤러리 </a></li>
       <li><a href="#">주문배송</a></li>

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.ezen.biz.dao.MemberDAO;
 import com.ezen.biz.dto.MemberVO;
@@ -22,7 +23,6 @@ public class MemberServiceImpl implements MemberService{
 	public List<MemberVO> selectMemberList() {
 		return dao.selectMemberList();
 	}
-	
 	
 	
 	
