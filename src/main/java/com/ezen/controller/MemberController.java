@@ -77,19 +77,19 @@ public class MemberController {
 		return "member/login";
     }
 	
-	@GetMapping("/mypage")
+	@GetMapping("/memberHome")
 	public String myhome() {
 		//mypage 구성
-		log.info("mypage");
-	    return "member/mypage";
+		log.info("memberHome");
+	    return "member/memberHome";
 	}
-	@PostMapping("/mypage")
+	@PostMapping("/memberHome")
 	public String myhome(MemberVO vo) {
-		log.info("mypage");
+		log.info("memberHome");
 		log.info(vo);
 		vo.setUserpwd(encoder.encode(vo.getUserpwd()));
 		mservice.insertMember(vo);
-		return "member/mypage";
+		return "member/memberHome";
 	}
 	
 	@RequestMapping("/logout")
@@ -97,5 +97,6 @@ public class MemberController {
 		session.removeAttribute("username");
 		return "redirect:/";
 	}
+	
 	
 }
