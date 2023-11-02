@@ -29,7 +29,8 @@
      <c:otherwise>
       		${sessionScope.userid}님
       		<li class="green"><a href="logout">로그아웃</a></li>
-      	<li><a href="#">마이페이지</a></li>
+      	<li><a href="mypage">마이페이지</a></li>
+      	<li><a href="membermodify">회원정보수정</a></li>
         <li><a href="#">이용안내</a></li>
         <li><a href="#">고객센터</a></li>
        </c:otherwise>
