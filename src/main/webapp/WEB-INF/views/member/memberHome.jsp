@@ -13,6 +13,8 @@
 <p>${sessionScope.userid }</p>
 <p>${sessionScope.username}</p>
 <a href="logout" style="color: red;">로그아웃</a>
+<br>
+<a href="/" style="color: blue;">홈페이지</a>
 </body>
 <%@ include file="../include/footer.jsp"%>
 </html>
