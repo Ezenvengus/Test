@@ -46,7 +46,7 @@
           </li>
           <li>
            <a href="/"><div class="col1"><span style="color:red;">- 홈페이지</span></div></a>
-           <div class="col2"> <--- </div>
+           <div class="col2">  </div>
             <div class="clear"></div>				
           </li>
         </ul>

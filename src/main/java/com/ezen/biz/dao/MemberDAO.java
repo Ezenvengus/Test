@@ -23,4 +23,9 @@ public class MemberDAO{
 	public List<MemberVO> selectMemberList(){
 		return mybatis.selectList("MemberDAO.selectMemberList");
 	}
+	public void memberDelete(MemberVO vo) {
+		
+		mybatis.delete("MemberDAO.delete", vo);
+	}
+	
 }

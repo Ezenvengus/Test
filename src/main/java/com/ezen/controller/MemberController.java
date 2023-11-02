@@ -1,6 +1,7 @@
 package com.ezen.controller;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,83 +9,87 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.service.MemberService;
 
 import lombok.extern.log4j.Log4j;
-import oracle.jdbc.proxy.annotation.Post;
 
 @Controller
 @Log4j
 public class MemberController {
-	
-	
+
 	@Autowired
-	private PasswordEncoder encoder;	
+	private PasswordEncoder encoder;
 	@Autowired
 	private MemberService mservice;
-	//login 이동
+
+	// login 이동
 	@GetMapping("/login")
 	public String doMember() {
-		//login
+		// login
 		log.info("login");
 		return "member/login";
 	}
-	
+
 	@PostMapping("/login")
-	public String Login(MemberVO vo,Model model,HttpServletRequest request) {
+	public String Login(MemberVO vo, Model model, HttpServletRequest request) {
 		log.info("login-----");
 		log.info(vo);
-		MemberVO v=mservice.selectMember(vo.getUserid());
-		if(v==null) {
+		MemberVO v = mservice.selectMember(vo.getUserid());
+		if (v == null) {
 			model.addAttribute("error", "없는 아이디 입니다.");
-			return "member/register";
-		}else {//패스워드 일치 확인
-			if(encoder.matches(vo.getUserpwd(), v.getUserpwd())) {
-				//로그인 성공 --> 세션에 담기
-				HttpSession session=request.getSession();
+			return "member/login";
+		} else {// 패스워드 일치 확인
+			
+			
+			if (encoder.matches(vo.getUserpwd(), v.getUserpwd())) {
+				// 로그인 성공 --> 세션에 담기
+				HttpSession session = request.getSession();
 				session.setAttribute("userid", v.getUserid());
 				session.setAttribute("username", v.getUsername());
 				return "redirect:/";
-			}else {
+			} else {
 				model.addAttribute("error", "패스워드가 다릅니다.");
-				return "member/register";
+				return "member/login";
 			}
 		}
 
 	}
-	
-	
-	//register 등록
+
+	// register 등록
 	@GetMapping("/register")
 	public String register() {
-		//login
+		// login
 		log.info("register");
 		return "member/register";
 	}
 	
-	//register 완료 
+	// register 완료
 	@PostMapping("/register")
-    public String register(MemberVO vo){
-		
+	public String register(MemberVO vo) {
+
 		log.info("register");
 		log.info(vo);
 		vo.setUserpwd(encoder.encode(vo.getUserpwd()));
 		mservice.insertMember(vo);
 		return "member/login";
-    }
-	
-	@GetMapping("/mypage")
-	public String myhome() {
-		//mypage 구성
-		log.info("mypage");
-	    return "member/mypage";
 	}
+
+	@GetMapping("/mypage")
+	public String mypage() {
+		// mypage 구성
+		log.info("mypage");
+		return "member/mypage";
+	}
+
 	@PostMapping("/mypage")
-	public String myhome(MemberVO vo) {
+	public String Mypage(MemberVO vo) {
 		log.info("mypage");
 		log.info(vo);
 		vo.setUserpwd(encoder.encode(vo.getUserpwd()));
@@ -92,10 +97,57 @@ public class MemberController {
 		return "member/mypage";
 	}
 	
+	
+
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("username");
+		session.removeAttribute("userid");
 		return "redirect:/";
 	}
 	
+	
+
+	// 회원정보 수정 화면 구현 : GET방식
+	@GetMapping(value="/memberModify")
+	    public String memberModify(){
+		    log.info("membermodify");
+	        return "member/memberModify";    
+	    }
+	// 회원정보 수정 화면 구현 : POST방식
+	@PostMapping(value="/memberModify")
+    public String memberModifyPOST(HttpServletRequest req, Model model, MemberVO membervo) throws Exception {
+        
+        HttpSession session = req.getSession();
+        
+       String userid =  (String) session.getAttribute("userid");
+        MemberVO vo=mservice.selectMember(userid);
+        model.addAttribute("vo", vo);
+    
+        return "member/memberModify";    
+    }
+     
+	// 회원 탈퇴 get
+		@RequestMapping(value="/membermodify", method = RequestMethod.GET)
+		public String memberDeleteView() throws Exception{
+			return "member/membermodify";
+		}
+		
+		// 회원 탈퇴 post
+		@RequestMapping(value="/membermodify", method = RequestMethod.POST)
+		public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
+			
+			// 세션에있는 비밀번호
+			String sessionPass = vo.getUserpwd();
+			// vo로 들어오는 비밀번호
+			String voPass = vo.getUserpwd();
+			
+			if(!(sessionPass.equals(voPass))) {
+				rttr.addFlashAttribute("msg", false);
+				return "redirect:/member/membermodify";
+			}
+			mservice.memberDelete(vo);
+			session.invalidate();
+			return "redirect:/";
+		}
+
 }

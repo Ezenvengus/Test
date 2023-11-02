@@ -23,8 +23,18 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectMemberList();
 	}
 	
-	
-	
+	public void memberModifyGET(MemberVO vo) {
+
+		dao.insertMember(vo);
+	}
+	public void memberModifyPOST(MemberVO vo) {
+
+		dao.insertMember(vo);
+	}
+	  
+	public void memberDelete(MemberVO vo){
+		dao.memberDelete(vo);
+	}
 	
 	
 }
