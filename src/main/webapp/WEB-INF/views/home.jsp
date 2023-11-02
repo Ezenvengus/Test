@@ -6,7 +6,7 @@
 <section id="main">
   <section id="cat1">
     <div id="cat_title">
-      CATEGORY ITEM
+      HOME
     </div>
     <ul>
     <c:forEach items="${cate}" var="cmap">

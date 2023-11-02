@@ -9,18 +9,12 @@
   		#{addr1,jdbcType=NVARCHAR},#{addr2,jdbcType=NVARCHAR},#{postno})
   	</insert>
   	<select id="selectMember" resultType="com.ezen.biz.dto.MemberVO">
-  		select userid,userpwd,username,addr1,addr2,postno,regdate from membertbl 
+  		select * from membertbl 
   		where userid=#{userid}
-   
   	</select>
-  	
   	<!-- 모든회원 조회 -->
   	<select id="selectMemberList" resultType="com.ezen.biz.dto.MemberVO">
   		select * from membertbl 
   	</select>
-  	<delete id="memberDelete">
-	DELETE * FROM membertbl
-	WHERE USERID = #{userid}
-	  AND USERPWD = #{userpwd} 
-</delete>
+  	
 </mapper>

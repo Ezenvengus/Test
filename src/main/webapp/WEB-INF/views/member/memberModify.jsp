@@ -18,7 +18,7 @@
 				<tr>
 					<td>* 아이디</td>
 					<td><input type="text" id="userId" name="id"
-						value="${member.userid}" readonly></td>
+						value="${member.userId }" readonly></td>
 				</tr>
 				<tr>
 					<td>* 비밀번호</td>

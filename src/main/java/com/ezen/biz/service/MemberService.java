@@ -18,4 +18,5 @@ public interface MemberService {
 
     void memberDelete(MemberVO vo);
 	
+	
 }
