@@ -98,13 +98,13 @@ public class MemberController {
 		return "redirect:/";
 	}
 	// 회원정보 수정 화면 구현 : GET방식
-		@GetMapping(value="/memberModify")
+		@GetMapping(value="/membermodify")
 		    public String memberModify(){
 			    log.info("membermodify");
-		        return "member/memberModify";    
+		        return "member/membermodify";    
 		    }
 		// 회원정보 수정 화면 구현 : POST방식
-		@PostMapping(value="/memberModify")
+		@PostMapping(value="/membermodify")
 	    public String memberModifyPOST(HttpServletRequest req, Model model, MemberVO membervo) throws Exception {
 	        
 	        HttpSession session = req.getSession();
@@ -113,7 +113,7 @@ public class MemberController {
 	        MemberVO vo=mservice.selectMember(userid);
 	        model.addAttribute("vo", vo);
 	    
-	        return "member/memberModify";    
+	        return "member/membermodify";    
 	    }
 	     
 		
