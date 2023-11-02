@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.service.MemberService;
@@ -97,5 +99,47 @@ public class MemberController {
 		session.removeAttribute("userid");
 		return "redirect:/";
 	}
-	
+	// 회원정보 수정 화면 구현 : GET방식
+		@GetMapping(value="/memberModify")
+		    public String memberModify(){
+			    log.info("membermodify");
+		        return "member/memberModify";    
+		    }
+		// 회원정보 수정 화면 구현 : POST방식
+		@PostMapping(value="/memberModify")
+	    public String memberModifyPOST(HttpServletRequest req, Model model, MemberVO membervo) throws Exception {
+	        
+	        HttpSession session = req.getSession();
+	        
+	       String userid =  (String) session.getAttribute("userid");
+	        MemberVO vo=mservice.selectMember(userid);
+	        model.addAttribute("vo", vo);
+	    
+	        return "member/memberModify";    
+	    }
+	     
+		// 회원 탈퇴 get
+			@RequestMapping(value="/membermodify", method = RequestMethod.GET)
+			public String memberDeleteView() throws Exception{
+				return "member/membermodify";
+			}
+			
+			// 회원 탈퇴 post
+			@RequestMapping(value="/membermodify", method = RequestMethod.POST)
+			public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
+				
+				// 세션에있는 비밀번호
+				String sessionPass = vo.getUserpwd();
+				// vo로 들어오는 비밀번호
+				String voPass = vo.getUserpwd();
+				
+				if(!(sessionPass.equals(voPass))) {
+					rttr.addFlashAttribute("msg", false);
+					return "redirect:/member/membermodify";
+				}
+				mservice.memberDelete(vo);
+				session.invalidate();
+				return "redirect:/";
+			}
+
 }

@@ -14,4 +14,6 @@ public interface MemberService {
     
 	void memberModifyPOST(MemberVO vo);
 
+	void memberDelete(MemberVO vo);
+
 }
