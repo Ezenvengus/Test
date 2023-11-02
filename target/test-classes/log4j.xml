@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.ezen.biz">
+	<logger name="com.ezen">
 		<level value="info" />
 	</logger>
 	

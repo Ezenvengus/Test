@@ -12,5 +12,6 @@ public interface MemberService {
 
 	List<MemberVO> selectMemberList();
     
-	
+	void memberModifyPOST(MemberVO vo);
+
 }
