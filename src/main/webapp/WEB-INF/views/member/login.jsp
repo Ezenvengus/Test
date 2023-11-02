@@ -8,34 +8,50 @@
 <meta charset="UTF-8">
 <%@ include file="../include/header.jsp"%>
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-
+<link rel="stylesheet"
+	href="/resources/login/fonts/material-icon/css/material-design-iconic-font.min.css">
+<!-- Main css -->
+<link rel="stylesheet" href="/resources/login/css/style.css">
 </head>
 <title>로그인</title>
 <body>
-	<main>
-		<div style="width:100px; height:800px">
-			<form action="login" method="post" id="loginForm">
-				<div class="form-group label-floating">
-					<label class="control-label">아이디</label> <input name="userid"
-						type="text" id="userid" class="form-control"
-						value="${cookie.rememberID.value}">
+
+	<div class="main">
+
+		<!-- Sign up form -->
+		<section class="signup">
+
+			<div class="container">
+				<div class="signup-content">
+					<div class="signup-form">
+						<h2 class="form-title">로그인</h2>
+							<div>메시지:${error}</div>
+						<form method="post" class="register-form" id="register-form"
+							action="/login" onsubmit="return inputCheck()">
+							<div class="form-group">
+								<label for="name"><i
+									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									type="text" name="userid" id="id" placeholder="ID" required />
+							</div>
+
+							<div class="form-group">
+								<label for="pass"><i class="zmdi zmdi-lock"></i></label> <input
+									type="password" name="userpwd" id="pass" placeholder="비밀번호"
+									required />
+							</div>
+							<div class="form-group form-button">
+								<input type="submit" name="" id="" class="form-submit"
+									value="로그인" />
+								<button class="form-submit" type="reset" id="reset">취소</button>
+							</div>
+						</form>
+					</div>
 				</div>
-				<div class="form-group  label-floating">
-					<label class="control-label">비밀번호</label> <input name="userpwd"
-						type="password" id="userpwd" class="form-control">
-				</div>
-				<div class="checkbox">
-					<label> 
-					<input type="checkbox" name="userid"> 아이디저장
-					</label> 
-					<label> 
-					<input type="checkbox" name="useCookie"> 자동로그인
-					</label>
-				</div>
-				<button type="submit" class="btn btn-default">로그인</button>
-			</form>
-		</div>
-	</main>
+			</div>
+		</section>
+
+	</div>
+	
 </body>
 </html>
 <%@ include file="../include/footer.jsp"%>
