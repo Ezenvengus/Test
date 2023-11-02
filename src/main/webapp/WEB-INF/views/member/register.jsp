@@ -87,18 +87,20 @@
 		//이상없으면 
 		return true;
 	}
-	
+
 	function fn_idChk() {
 		$.ajax({
 			url : "/member/login",
 			type : "POST",
 			dataType : "json",
-			data : {"userId" : $("userId").val()},
-			success : function(data){
-				if(data == 1){
+			data : {
+				"userId" : $("userId").val()
+			},
+			success : function(data) {
+				if (data == 1) {
 					alert("중복된 아이디입니다.");
-				}else if(data == 0){
-					$("#idChk").attr("value","Y");
+				} else if (data == 0) {
+					$("#idChk").attr("value", "Y");
 					alert("사용가능한 아이디입니다.");
 				}
 			}
@@ -108,7 +110,6 @@
 </head>
 <body>
 	<div class="main">
-
 		<!-- Sign up form -->
 		<section class="signup">
 
@@ -116,7 +117,7 @@
 				<div class="signup-content">
 					<div class="signup-form">
 						<h2 class="form-title">회원가입</h2>
-						<form method="POST" class="register-form"  id="register-form"
+						<form method="POST" class="register-form" id="register-form"
 							action="/register" onsubmit="return inputCheck()">
 							<div class="form-group">
 								<label for="name"><i
@@ -142,8 +143,9 @@
 								<label for="name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="userid" id="id" placeholder="ID" required />
+
 							</div>
-							
+
 							<div class="form-group">
 								<label for="pass"><i class="zmdi zmdi-lock"></i></label> <input
 									type="password" name="userpwd" id="pass" placeholder="비밀번호"
@@ -161,11 +163,9 @@
 									<a href="#" class="term-service">이용약관에</a> 동의합니다.</label>
 							</div>
 							<div class="form-group form-button">
-								<input type="submit" name="" id=""
-									class="form-submit" value="회원가입" />
-							</div>
-							<div class="form-group has-feedback">
-								<button class="cancel btn btn-danger" type="reset" id="reset">취소</button>
+								<input type="submit" name="" id="" class="form-submit"
+									value="회원가입" />
+								<button class="form-submit" type="reset" id="reset">취소</button>
 							</div>
 						</form>
 					</div>
