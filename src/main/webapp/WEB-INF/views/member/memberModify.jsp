@@ -22,8 +22,8 @@
 				</tr>
 				<tr>
 					<td>* 비밀번호</td>
-					<td><input type="password" name="password" id="password"
-						value=""></td>
+					<td><input type="password" name="userpwd" id="password"
+						value="${member.userPwd }" ></td>
 				</tr>
 				<tr>
 					<td>* 이름</td>
@@ -33,11 +33,11 @@
 
 				<tr>
 					<td>* 우편번호</td>
-					<td><input type="text" name="postno" value="${post }"></td>
+					<td><input type="text" name="postno" value="${postno }"></td>
 				</tr>
 				<tr>
 					<td>* 주소</td>
-					<td><input type="text" name="addr1" value="${address }"></td>
+					<td><input type="text" name="addr1" value="${addr }"></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
