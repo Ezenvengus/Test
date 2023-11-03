@@ -8,7 +8,7 @@
 <section id="main">
   <aside id="left">
     <div id="cat_title">
-      CART ITEM
+      CATEGORY ITEM
     </div>
      <ul>
      <c:forEach items="${cate}" var="cmap">
