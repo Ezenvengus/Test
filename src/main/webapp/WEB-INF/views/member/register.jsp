@@ -135,7 +135,7 @@
 									type="text" name="addr2" id="addr2" placeholder="상세주소" />
 							</div>
 							<div class="form-group">
-								<label for="email"><i class="zmdi zmdi-email"></i></label> <input
+								<label for="postno"><i class="zmdi zmdi-email"></i></label> <input
 									type="text" name="postno" id="postno" placeholder="우편번호"
 									readonly />
 							</div>
@@ -174,7 +174,7 @@
 							<img src="/resources/login/images/signup-image.jpg"
 								alt="sign up image">
 						</figure>
-						<a href="login" class="signup-image-link">로그인 페이지로</a>
+						<a href="/login" class="signup-image-link">로그인 페이지로</a>
 					</div>
 				</div>
 			</div>

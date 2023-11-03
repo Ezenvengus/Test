@@ -5,11 +5,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+
 
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.service.MemberService;
@@ -78,13 +82,13 @@ public class MemberController {
     }
 	
 	@GetMapping("/mypage")
-	public String myhome() {
+	public String mypage() {
 		//mypage 구성
 		log.info("mypage");
 	    return "member/mypage";
 	}
 	@PostMapping("/mypage")
-	public String myhome(MemberVO vo) {
+	public String mypage(MemberVO vo) {
 		log.info("mypage");
 		log.info(vo);
 		vo.setUserpwd(encoder.encode(vo.getUserpwd()));
@@ -113,9 +117,13 @@ public class MemberController {
 	        MemberVO vo=mservice.selectMember(userid);
 	        model.addAttribute("vo", vo);
 	    
-	        return "member/membermodify";    
+	        return "member/login";    
 	    }
-	     
+		@GetMapping("/updatepwdpage")
+		public String updatePwdPage() {
+			return "updatePwdPage";
+		}
+		
 		
 
 }

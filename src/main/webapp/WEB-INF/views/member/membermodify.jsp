@@ -10,54 +10,74 @@
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
 <title>회원정보수정</title>
 </head>
+<script type="text/javascript">
+		$(document).ready(function(){
+			// 취소
+			$(".cancel").on("click", function(){
+				
+				location.href = "/";
+						    
+			})
+		
+			$("#submit").on("click", function(){
+				if($("#userPwd").val()==""){
+					alert("비밀번호를 입력해주세요.");
+					$("#userPwd").focus();
+					return false;
+				}
+				if($("#userName").val()==""){
+					alert("성명을 입력해주세요.");
+					$("#userName").focus();
+					return false;
+				}
+				if($("#userId").val()==""){
+					alert("아이디를 입력해주세요.");
+					$("#userId").focus();
+					return false;
+				}
+			});
+			
+				
+			
+		})
+	</script>
 <body>
 	<h1 align="center">회원정보수정</h1>
-	<div class="">
-		<form action="/membermotify" method="post">
-			<table>
-				<tr>
-					<td>* 아이디</td>
-					<td><input type="text" id="userId" name="id"
-						value="${member.userId }" readonly></td>
-				</tr>
-				<tr>
-					<td>* 비밀번호</td>
-					<td><input type="password" name="userpwd" id="password"
-						value="${member.userPwd }" ></td>
-				</tr>
-				<tr>
-					<td>* 이름</td>
-					<td><input type="text" name="username"
-						value="${member.userName }" readonly></td>
-				</tr>
 
-				<tr>
-					<td>* 우편번호</td>
-					<td><input type="text" name="postno" value="${postno }"></td>
-				</tr>
-				<tr>
-					<td>* 주소</td>
-					<td><input type="text" name="addr1" value="${addr }"></td>
-				</tr>
-				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value="수정하기">
-						<button class="btn btn-success" type="submit" id="submit">회원탈퇴</button>
-						<button class="cancel btn btn-danger" type="button">취소</button></td>
-				</tr>
-			</table>
+	<section id="container">
+		<form action="/membermodify" method="post">
+			<div class="form-group has-feedback">
+				<label class="control-label" for="userName">userName :</label> <input
+					class="form-control" type="text" id="userName" name="userName"
+					value="${member.userName}" />
+			</div>
+			<div class="form-group has-feedback">
+				<label class="control-label" for="userId">ID :</label> <input
+					class="form-control" type="text" id="userId" name="userId"
+					value="${member.userId}" />
+			</div>
+			<div class="myPage-row">
+			  <label>현재 비밀번호 :</label>
+			   <input type="password" name="currentpwd" id="userpwd" name="userpwd" />
+			</div>
+			<div class="myPage-row">
+			  <label>새 비밀번호 :</label>
+			   <input type="password" name="newpwd" id="userpwd" name="userpwd" />
+			</div>
+			<div class="myPage-row">
+			  <label>새 비밀번호 확인 :</label>
+			   <input type="password" name="newpwdconfirm" id="userpwd" name="userpwd" />
+			</div>
+		    <div id="errormessage"></div>
 
+			<div class="form-group has-feedback">
+				<button class="btn btn-success" type="submit" id="submit">회원정보수정</button>
+				<button class="form-submit" type="reset" id="reset">취소</button>
+				
+			</div>
+			<a href="/" class="signup-image-link">메인 페이지로</a>
 		</form>
-	</div>
-
-	<script>
-		function removeMember() {
-			if (window.confirm("탈퇴하시겠습니까?")) {
-				location.href = "member/membermodify";
-			}
-
-		}
-	</script>
+	</section>
 </body>
 </html>
 <%@ include file="../include/footer.jsp"%>

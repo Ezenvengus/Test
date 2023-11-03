@@ -8,70 +8,82 @@
 <meta charset="UTF-8">
 <%@ include file="../include/header.jsp"%>
 <script type="text/javascript" src="/resources/js/jquery-3.4.1.min.js"></script>
-<script>
-	$(function(){
-		if(${msg ne null}){
-			alert('${msg}');
-		};
-		
-		if($("#userpwdForm").submit(function(){
-			if($("#pwd").val() !== $("#pwd2").val()){
-				alert("비밀번호가 다릅니다.");
-				$("#pwd").val("").focus();
-				$("#pwd2").val("");
-				return false;
-			}else if ($("#pwd").val().length < 8) {
-				alert("비밀번호는 8자 이상으로 설정해야 합니다.");
-				$("#pw").val("").focus();
-				return false;
-			}else if($.trim($("#pwd").val()) !== $("#pwd").val()){
-				alert("공백은 입력이 불가능합니다.");
-				return false;
-			}
-		}));
-	})
-</script>
-<title>MYPAGE</title>
+<link rel="stylesheet"
+	href="/resources/login/fonts/material-icon/css/material-design-iconic-font.min.css">
+<!-- Main css -->
+<link rel="stylesheet" href="/resources/login/css/style.css">
 </head>
+<title>mypage</title>
 <body>
-	<div class="w3-content w3-container w3-margin-top">
-		<div class="w3-container w3-card-4">
-			<div class="w3-center w3-large w3-margin-top">
-				<h3>My Page</h3>
+
+	<div class="main">
+
+		<!-- Sign up form -->
+		<section class="signup">
+
+			<div class="container">
+				<div class="signup-content">
+					<div class="signup-form">
+						<h2 class="form-title">mypage</h2>
+						<form method="post" class="register-form" id="register-form"
+							action="/mypage" onsubmit="return inputCheck()">
+							<div class="form-group">
+								<label for="mypage"><i
+									class="zmdi zmdi-account material-icons-name"></i></label> <input
+									type="text" name="mypage" id="" placeholder="mypage" required />
+							</div>
+
+							<div class="form-group">
+								<label for="id"><i class="zmdi zmdi-lock"></i></label> <input
+									type="text" name="userid" id="id" placeholder="ID" required />
+							</div>
+							<div class="form-group">
+								<label for="username"><i class="zmdi zmdi-lock"></i></label> <input
+									type="text" name="username" id="name" placeholder="USERNAME"
+									required />
+							</div>
+							<div class="form-group">
+								<label for="addr1"><i class="zmdi zmdi-lock"></i></label> <input
+									type="text" name="addr1" id="addr1" placeholder="addr1"
+									required />
+							</div>
+							<div class="form-group">
+								<label for="p_name:cnt"><i class="zmdi zmdi-lock"></i></label> <input
+									type="text" name="p_name:cnt" id="p_name:cnt" placeholder="p_name:cnt"
+									required />
+							</div>
+							<div class="signup-image">
+								<figure>
+									<img src="/resources/login/images/signup-image.jpg"
+										alt="sign up image">
+								</figure>
+								<a href="/" class="signup-image-link">메인페이지로 이동</a>
+							</div>
+
+						</form>
+					</div>
+				</div>
 			</div>
-			<div>
-				<form id="IDForm" action="../member/login" method="post">
-					<p>
-						<label>ID</label> <input class="w3-input" type="text" id="id"
-							name="userid" readonly value="${ member.userid }">
-					</p>
-			
-				</form>
-				<br />
-				<form id="pwdForm" action="../member/login" method="post">
-					<input type="hidden" name="userpwd" value="${ member.userpwd }">
-					<p>
-						<label>Password</label> <input class="w3-input" id="password"
-							name="userpwd" type="password" required>
-					</p>
-					<p>
-						<label>New Password</label> <input class="w3-input" id="password"
-							name="userpwd" type="password" required>
-					</p>
-					<p>
-						<label>Password Confirm</label> <input class="w3-input" type="password"
-							id="pwd2" type="password" required>
-					</p>
-					<p class="w3-center">
-						<button type="submit" id="joinBtn"
-							class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">비밀번호
-							변경</button>
-					</p>
-					<button type="button" id="modify-btn" onclick="location.href='${contextPath }/member/membermodify=${info.id }'">수정하기 &gt;</button>
-				</form>
-			</div>
-		</div>
+		</section>
+
 	</div>
+
 </body>
+<script type="text/javascript">
+function mypage() {
+	let userId = document.getElementById("userid");
+	let userName = document.getElementById("username");
+	let Addr1 = document.getElementById("addr1");
+	let P_NAME:CNT = document.getElementById("P_NAME:CNT");
+	if (id.value == "") {
+		alert("아이디를 입력하세요.");
+		id.focus();
+		return false;
+	}
+	
+	return true;
+	//document.getElementById("frmBuy").submit();
+}
+</script>
 </html>
 <%@ include file="../include/footer.jsp"%>

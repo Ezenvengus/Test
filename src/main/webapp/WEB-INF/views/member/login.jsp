@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +25,7 @@
 				<div class="signup-content">
 					<div class="signup-form">
 						<h2 class="form-title">로그인</h2>
-							<div>메시지:${error}</div>
+							<div>메시지:${error }</div>
 						<form method="post" class="register-form" id="register-form"
 							action="/login" onsubmit="return inputCheck()">
 							<div class="form-group">
