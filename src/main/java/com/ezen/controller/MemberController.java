@@ -1,5 +1,7 @@
 package com.ezen.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,9 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-
 import com.ezen.biz.dto.MemberVO;
 import com.ezen.biz.service.MemberService;
+
 
 import lombok.extern.log4j.Log4j;
 
@@ -81,20 +83,39 @@ public class MemberController {
 		return "member/login";
     }
 	
-	@GetMapping("/mypage")
-	public String mypage() {
-		//mypage 구성
-		log.info("mypage");
-	    return "member/mypage";
-	}
-	@PostMapping("/mypage")
-	public String mypage(MemberVO vo) {
-		log.info("mypage");
-		log.info(vo);
-		vo.setUserpwd(encoder.encode(vo.getUserpwd()));
-		mservice.insertMember(vo);
-		return "member/mypage";
-	}
+	//mypage 등록
+		@GetMapping("/mypage")
+		public String mypage(Model model,HttpSession session) {
+			//
+			log.info("mypage");
+			// session에 담긴 id로 회원정보를 조회해서 모델에 담는다.
+			String userid=(String) session.getAttribute("userid");
+			MemberVO vo=mservice.selectMember(userid);
+			log.info(vo);
+			model.addAttribute("vo", vo);
+			// 내가 userid 구매한 목록을 가져온다.
+			// 리스트를 모델에 담는다.
+			String p_name=(String) session.getAttribute("p_name");
+			log.info(vo);
+            model.addAttribute("p_name", p_name);
+            String cnt=(String) session.getAttribute("cnt");
+			log.info(vo);
+            model.addAttribute("cnt", cnt);
+            
+			return "member/mypage";
+		}
+		
+		//mypage 완료 
+		@PostMapping("/mypage")
+	    public String mypage(MemberVO vo){
+			
+			log.info("mypage");
+			log.info(vo);
+			vo.setUserpwd(encoder.encode(vo.getUserpwd()));
+			mservice.insertMember(vo);
+			return "member/mypage";
+	    }
+		
 	
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
