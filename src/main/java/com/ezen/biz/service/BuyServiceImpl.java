@@ -34,8 +34,6 @@ public class BuyServiceImpl implements BuyService {
 	public int insertBuy(BuyVO vo) {
 		dao.insertBuy(vo);//구매테이블에 추가
 		//재고수량 감소
-		
-		
 		//가장 큰 값
 		return dao.maxSeq();
 	}

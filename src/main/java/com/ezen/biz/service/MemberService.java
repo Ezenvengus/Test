@@ -2,6 +2,7 @@ package com.ezen.biz.service;
 
 import java.util.List;
 
+
 import com.ezen.biz.dto.MemberVO;
 
 public interface MemberService {
@@ -11,7 +12,9 @@ public interface MemberService {
 	MemberVO selectMember(String userid);
 
 	List<MemberVO> selectMemberList();
-    
+
+	void memberDelete(MemberVO vo);
 	
-	
+	void updateMember(MemberVO vo);
+
 }

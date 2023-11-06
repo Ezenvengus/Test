@@ -7,7 +7,7 @@
 <section id="main" >
  <aside id="left">
     <div id="cat_title">
-      BUY DETAIL
+      CATEGORY ITEM
     </div>
     <ul>
      <c:forEach items="${cate}" var="cmap">

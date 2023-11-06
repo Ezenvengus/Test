@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -69,23 +70,20 @@
 	 * 비밀번호,이용약관 체크 후 전송
 	 =======================*/
 	function inputCheck() {
-		let pass = $("#pass").val();
-		let re_pass = $("#re_pass").val();
-		//비밀번호 확인 : 비밀번호 다르면 return false;
-		if (pass !== re_pass) {
-			$("#pass").val("");
-			$("#re_pass").val("");
-			$("#pass").focus();
-			alert("비밀번호가 일치하지 않습니다. 확인하세요!")
-			return false;
+		let re_pass1 = $("#re_pass1").val();
+		let re_pass2 = $("#re_pass2").val();
+		if(re_pass1!="" || re_pass2!=""){			
+			//비밀번호 확인 : 비밀번호 다르면 return false;
+			if (re_pass1 !== re_pass2) {
+				$("#re_pass1").val("");
+				$("#re_pass2").val("");
+				$("#re_pass1").focus();
+				alert("비밀번호가 일치하지 않습니다. 확인하세요!")
+				return false;
+			}
 		}
-		//이용약관 체크
-		if (!$('#agree-term').is(':checked')) {
-			alert("이용약관 동의해 주세요.")
-			return false;
-		}
-		//이상없으면 
 		return true;
+		
 	}
 
 	function fn_idChk() {
@@ -116,66 +114,67 @@
 			<div class="container">
 				<div class="signup-content">
 					<div class="signup-form">
-						<h2 class="form-title">회원가입</h2>
+						<h2 class="form-title">회원정보수정</h2>
+						<c:if test="${error != null}">
+						<div>메시지 : ${error }</div><div style="height: 30px"></div>
+						</c:if>
 						<form method="POST" class="register-form" id="register-form"
-							action="/register" onsubmit="return inputCheck()">
+							action="membermodify" onsubmit="return inputCheck()">
+							<div class="form-group">
+								<label for="name"><i
+									class="zmdi zmdi-account material-icons-name"></i></label> 
+									<input	type="text" name="userid" id="id" placeholder="ID" readonly="readonly" value="${vo.userid }" />
+
+							</div>
+							
 							<div class="form-group">
 								<label for="name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="username" id="name" placeholder="이름" required />
+									type="text" name="username" id="name" placeholder="이름" required  value="${vo.username }" />
 							</div>
 
 							<div class="form-group">
 								<label for="addr"><i class="zmdi zmdi-city"></i></label> <input
-									type="text" name="addr1" id="addr1" placeholder="주소" required
+									type="text" name="addr1" id="addr1" placeholder="주소" required  value="${vo.addr1 }" 
 									onclick="jusoPopup()" />
 							</div>
 							<div class="form-group">
 								<label for="addr"><i class="zmdi zmdi-city"></i></label> <input
-									type="text" name="addr2" id="addr2" placeholder="상세주소" />
+									type="text" name="addr2" id="addr2" placeholder="상세주소"   value="${vo.addr2}"/>
 							</div>
 							<div class="form-group">
 								<label for="postno"><i class="zmdi zmdi-email"></i></label> <input
-									type="text" name="postno" id="postno" placeholder="우편번호"
+									type="text" name="postno" id="postno" placeholder="우편번호" value="${vo.postno}"
 									readonly />
-							</div>
-							<div class="form-group">
-								<label for="name"><i
-									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="userid" id="id" placeholder="ID" required />
-
 							</div>
 
 							<div class="form-group">
 								<label for="pass"><i class="zmdi zmdi-lock"></i></label> <input
-									type="password" name="userpwd" id="pass" placeholder="비밀번호"
+									type="password" name="userpwd" id="currentPwd" placeholder="기존 비밀번호"
 									required />
 							</div>
 							<div class="form-group">
 								<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-								<input type="password" name="re_pass" id="re_pass"
-									placeholder="비밀번호 재입력" required />
+								<input type="password" name="re_pass1" id="re_pass1"
+									placeholder="새 비밀번호"  />
 							</div>
 							<div class="form-group">
-								<input type="checkbox" name="agree-term" id="agree-term"
-									class="agree-term" /> <label for="agree-term"
-									class="label-agree-term"><span><span></span></span>회원가입시
-									<a href="#" class="term-service">이용약관에</a> 동의합니다.</label>
+								<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+								<input type="password" name="re_pass2" id="re_pass2"
+									placeholder="비밀번호 확인"  />
 							</div>
+							
 							<div class="form-group form-button">
 								<input type="submit" name="" id="" class="form-submit"
-									value="회원가입" />
+									value="회원정보수정" />
 								<button class="form-submit" type="reset" id="reset">취소</button>
 							</div>
+	
 						</form>
 					</div>
-					<div class="signup-image">
-						<figure>
-							<img src="/resources/login/images/signup-image.jpg"
-								alt="sign up image">
-						</figure>
-						<a href="/login" class="signup-image-link">로그인 페이지로</a>
-					</div>
+					
+						
+					
 				</div>
 			</div>
 		</section>

@@ -34,7 +34,4 @@ public class ProductDAO  {
 	public void updateProduct(ProductVO vo) {
 		mybatis.update("ProductDAO.updateProduct", vo);
 	}
-
-	
-
 }
