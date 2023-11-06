@@ -22,15 +22,15 @@
     <nav id="top_menu">
     <ul>
     <c:choose>
-      <c:when test="${sessionScope.username==null}">
+      <c:when test="${sessionScope.userid==null}">
       <li class="green"><a href="login">로그인</a></li>
         <li class="green"><a href="register">회원가입</a></li>
       </c:when>
      <c:otherwise>
-      		${sessionScope.username}님
+      		${sessionScope.userid}님
       		<li class="green"><a href="logout">로그아웃</a></li>
       	<li><a href="mypage">마이페이지</a></li>
-      	 	<li><a href="membermotify">회원정보수정</a></li>
+      	<li><a href="membermodify">회원정보수정</a></li>
         <li><a href="#">이용안내</a></li>
         <li><a href="#">고객센터</a></li>
        </c:otherwise>
@@ -43,7 +43,7 @@
   <nav id="main_menu">
   
     <ul>
-      <li><a href="#">상세 페이지 </a></li>
+      <li><a href="category">상세 페이지 </a></li>
       <li><a href="#">장바구니</a></li>
       <li><a href="#">고객 갤러리 </a></li>
       <li><a href="#">주문배송</a></li>

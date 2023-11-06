@@ -2,6 +2,7 @@ package com.ezen.biz.dao;
 
 import java.util.List;
 
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -23,9 +24,7 @@ public class MemberDAO{
 	public List<MemberVO> selectMemberList(){
 		return mybatis.selectList("MemberDAO.selectMemberList");
 	}
-	public void memberDelete(MemberVO vo) {
-		
-		mybatis.delete("MemberDAO.delete", vo);
-	}
-	
+	 public void updateMember(MemberVO vo) {
+		 mybatis.update("MemberDAO.updateMember", vo);
+	 }
 }

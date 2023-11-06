@@ -20,4 +20,5 @@ public interface ProductService {
 	void insertProduct(ProductVO vo);
 	
 	void updateInventory(ProductVO vo);
+
 }
