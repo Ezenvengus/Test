@@ -20,4 +20,13 @@
 		resultType="com.ezen.biz.dto.MemberVO">
 		select * from membertbl
 	</select>
+	<!-- 회원정보 수정 -->
+	<update id="updateMember">
+	update membertbl set 
+		userpwd = #{userpwd}, username = #{username},
+		addr1 =#{addr1,jdbcType=NVARCHAR},addr2 =#{addr2,jdbcType=NVARCHAR}
+		, postno = #{postno}
+	where userid=#{userid}
+	</update>
+	
 </mapper>

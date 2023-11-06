@@ -14,5 +14,7 @@ public interface MemberService {
 	List<MemberVO> selectMemberList();
 
 	void memberDelete(MemberVO vo);
+	
+	void updateMember(MemberVO vo);
 
 }
