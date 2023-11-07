@@ -21,8 +21,11 @@
       <img src="/resources/img/footer_logo.jpg" width="182" height="39">
       </a>
     </div>
-    <div id="address">
-      <img src="/resources/img/address.gif">
+    <div id="address" style="display:inline-block;margin-top:30px;margin-left:40px">
+ 		상호:고담시티 공동대표:김현우,손한국 개인정보관리책임자:손한국(son91111@naver.com)<br>
+ 		주소:서울 관악구 신림로 340 6층 이젠컴퓨터아카데미 전화:080-335-0020<br>
+ 		사업자등록번호[421-49-71099] 통신판매업 신고(제 2016-서울신림-234호)<br>
+ 		Copyright by KIDULTSTORE. All rights reserved.<br>
     </div>
     <div id="footer_banner">
       <img src="/resources/img/footer_banner_01.gif">
