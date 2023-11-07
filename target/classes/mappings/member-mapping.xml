@@ -13,7 +13,7 @@
   		where userid=#{userid}
       </select>
      
-
+ 
 	
 	<!-- 모든회원 조회 -->
 	<select id="selectMemberList"
