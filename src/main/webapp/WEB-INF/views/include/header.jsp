@@ -43,7 +43,7 @@
   <nav id="main_menu">
   
     <ul>
-      <li><a href="category">상세 페이지 </a></li>
+      <li><a href="#">상세 페이지 </a></li>
       <li><a href="#">장바구니</a></li>
       <li><a href="#">고객 갤러리 </a></li>
       <li><a href="#">주문배송</a></li>
